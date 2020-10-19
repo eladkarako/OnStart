@@ -1,0 +1,46 @@
+
+
+
+
+
+Receive-Side Scaling (RSS)
+  A Microsoft Windows feature on some supported network-controllers (not a built-in TCP-feature).
+  The network-controller will dynamically load-balances inbound network connections across multiple processors or cores (of the computer's CPU)
+  https://en.wikipedia.org/wiki/Receive-side_scaling
+-----------------------------------------------------------------------------------------------------------
+TCP Chimney Offload (TOE)
+  A Microsoft Windows feature on some supported network-controllers (not a built-in TCP-feature).
+  TCP traffic processing of the entire TCP/IP stack is moved from the the computer CPU, to the network-controller.
+  https://en.wikipedia.org/wiki/TCP_offload_engine
+  https://en.wikipedia.org/wiki/Scalable_Networking_Pack
+  
+  Automatic
+    offloading only if 
+    1. The connection is established through a 10-Gbps Ethernet adapter.
+    2. The mean round-trip link latency is less than 20 milliseconds.
+    3. At least 130 KB of data have been exchanged over the connection.
+    
+    In Automatic mode, the TCP receive window is set to 16 MB.
+    NOTE: Because the Windows stack (CPU) has better performance optimizations, 
+          that are not found in Chimney-capable network adapters, 
+          Automatic mode restricts offloads only to those connections that might receive the most benefit from it.
+ 
+  Enabled
+    offloads the processing for connections on a first-come, first-served basis.
+
+  Disabled
+    all network processing is done on the CPU.
+-----------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+https://betanews.com/2011/01/20/use-hidden-windows-tweaks-to-speed-up-your-internet-and-network-connections/
+https://social.msdn.microsoft.com/Forums/en-US/94d1fe8e-4f17-4b28-89eb-1ac776a2e134/how-to-create-tcp-fast-open-connections-with-winsock-?forum=windowsgeneraldevelopmentissues
+https://hg.mozilla.org/integration/mozilla-inbound/rev/e5496e22cd86
+https://www.systemcamp.com/enable-tcp-fast-open-windows-10-anniversary/
+https://en.wikipedia.org/wiki/Receive-side_scaling#cite_ref-intel-grantley_11-0

@@ -1,0 +1,24 @@
+Avast configuration to prevent BSOD.
+
+trubleshooting:
+self protection     - off
+hardware protection - off
+
+
+
+it cases
+error in virtualbox - "The driver detected an internal driver error on \Device\VBoxNetLwf."
+
+
+-----------------------------------
+
+turning it off 
+
+1. should be creating new dword "Enabled" with 0 under
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\aswSP\Parameters]
+    [HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\aswSP\Parameters] 
+2. should be creating new dword "Dont" with 0 under
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\aswVmm\Parameters]
+    [HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\aswVmm\Parameters]
+
+requires reboot.

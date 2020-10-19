@@ -1,0 +1,10 @@
+services disable:
+	SSDP Discovery Service
+	Universal Plug and Play Device Host
+---------------
+עדכונים אוטומטים- רק הודעה לא הורדה ולא התקנה
+---------------
+my computer:
+right click on each drive and deselect "allow index.."
+make it run recursivly on all subfiles & folders
+---------------

@@ -1,0 +1,27 @@
+[Version]
+Signature=$Chicago$
+
+[DefaultInstall]
+AddReg=Console
+UpdateInis=IniUpdate
+Copyfiles=DestGrp
+
+[Console]
+HKCU,"Console","FontSize",65537,1179658
+
+[IniUpdate]
+%10%\SYSTEM.INI,"386enh",,"BACKUP-woafont=DOSAPP.FON"
+%10%\SYSTEM.INI,"386enh",,"woafont=APP862.FON"
+
+[SourceDisksNames]
+1="HEBDOS Disk 1",,0
+
+[SourceDisksFiles]
+APP862.FON=1,,44240
+
+[DestGrp]
+APP862.FON
+
+[DestinationDirs]
+DestGrp=20
+

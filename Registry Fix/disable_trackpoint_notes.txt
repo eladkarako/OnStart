@@ -1,0 +1,32 @@
+go to scheduled tasks, 
+disable "Synaptics TouchPad Enhancements", 
+
+create a new shortcut in startup folder for all users: "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup" 
+pointing to: 
+
+C:\Program Files\Synaptics\SynTP\SynTPEnh.exe
+or
+C:\Program Files (x86)\Synaptics\SynTP\SynTPEnh.exe
+
+(which ever one exists).
+
+
+SynTPEnh.exe will then run SynTPLpr.exe
+
+
+SynTPEnh must be run as admin, 
+so run disable_trackpoint_notes__run_as_admin.reg
+
+
+
+
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers]
+"C:\\Program Files\\Synaptics\\SynTP\\InstNT.exe"="RUNASADMIN"
+"C:\\Program Files\\Synaptics\\SynTP\\SynMood.exe"="RUNASADMIN"
+"C:\\Program Files\\Synaptics\\SynTP\\SynTPEnh.exe"="RUNASADMIN"
+"C:\\Program Files\\Synaptics\\SynTP\\SynTPHelper.exe"="RUNASADMIN"
+"C:\\Program Files\\Synaptics\\SynTP\\SynTPLpr.exe"="RUNASADMIN"
+"C:\\Program Files\\Synaptics\\SynTP\\SynZMetr.exe"="RUNASADMIN"
+"C:\\Program Files\\Synaptics\\SynTP\\Tutorial.exe"="RUNASADMIN"

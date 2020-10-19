@@ -1,0 +1,48 @@
+seeing this error when starting powershell:
+WARNING: File C:\Windows\system32\WindowsPowerShell\v1.0\Modules\PSDiagnostics\PSDiagnostics.psm1 cannot be loaded because the execution of scripts is disabled on this system. Please see "get-help about_signing" for more details.
+
+
+
+
+open a CMD window as admin.
+-----------------------------------------------------------------------------
+powershell get-ExecutionPolicy -List
+
+        Scope                                             ExecutionPolicy
+        -----                                             ---------------
+MachinePolicy                                                   Undefined
+   UserPolicy                                                   Undefined
+      Process                                                   Undefined
+  CurrentUser                                                   Undefined
+ LocalMachine                                                   Undefined
+-----------------------------------------------------------------------------
+powershell Set-ExecutionPolicy Unrestricted
+-----------------------------------------------------------------------------
+powershell get-ExecutionPolicy -List
+
+        Scope                                             ExecutionPolicy
+        -----                                             ---------------
+MachinePolicy                                                   Undefined
+   UserPolicy                                                   Undefined
+      Process                                                   Undefined
+  CurrentUser                                                   Undefined
+ LocalMachine                                                Unrestricted
+-----------------------------------------------------------------------------
+
+
+
+
+you can use:
+Restricted    – No scripts can be run.
+AllSigned     – Only scripts signed by a trusted publisher can be run.
+RemoteSigned  – Downloaded scripts must be signed by a trusted publisher.
+Unrestricted  – Windows PowerShell scripts can be run, when downloaded from server, if not signed you would be prompt before.
+Bypass        - Allow all no prompt, should be used only per run.
+
+
+
+change scope:
+powershell Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Bypass -Force
+
+in a file run:
+powershell -ExecutionPolicy ByPass -File script.ps1

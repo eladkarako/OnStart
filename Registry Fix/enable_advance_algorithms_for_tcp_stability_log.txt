@@ -1,0 +1,82 @@
+                                                                               
+===========================================================================    
+2020/10/10 16:14                                                                
+[BEFORE]                                                                       
+-------------------------------------- [netsh interface tcp show global]       
+Querying active state...
+
+TCP Global Parameters
+----------------------------------------------
+Receive-Side Scaling State          : enabled 
+Chimney Offload State               : automatic 
+NetDMA State                        : enabled 
+Direct Cache Acess (DCA)            : disabled 
+Receive Window Auto-Tuning Level    : normal 
+Add-On Congestion Control Provider  : none 
+ECN Capability                      : disabled 
+RFC 1323 Timestamps                 : disabled 
+** The above autotuninglevel setting is the result of Windows Scaling heuristics
+overriding any local/policy configuration on at least one profile.
+
+------------------------------------------------------------------------       
+                                                                               
+-------------------------------------- [netsh interface tcp dump]              
+
+
+# ----------------------------------
+# TCP Configuration
+# ----------------------------------
+pushd interface tcp
+
+reset
+
+set global rss=enabled chimney=automatic autotuninglevel=normal congestionprovider=none ecncapability=disabled timestamps=disabled netdma=disabled dca=disabled
+
+
+popd
+# End of TCP configuration
+
+
+------------------------------------------------------------------------       
+                                                                               
+                                                                               
+[AFTER]                                                                        
+-------------------------------------- [netsh interface tcp show global]       
+Querying active state...
+
+TCP Global Parameters
+----------------------------------------------
+Receive-Side Scaling State          : enabled 
+Chimney Offload State               : enabled 
+NetDMA State                        : enabled 
+Direct Cache Acess (DCA)            : enabled 
+Receive Window Auto-Tuning Level    : normal 
+Add-On Congestion Control Provider  : ctcp 
+ECN Capability                      : enabled 
+RFC 1323 Timestamps                 : enabled 
+
+------------------------------------------------------------------------       
+                                                                               
+-------------------------------------- [netsh interface tcp dump]              
+
+
+# ----------------------------------
+# TCP Configuration
+# ----------------------------------
+pushd interface tcp
+
+reset
+
+set global rss=enabled chimney=enabled autotuninglevel=normal congestionprovider=ctcp ecncapability=enabled timestamps=enabled netdma=disabled dca=disabled
+
+
+popd
+# End of TCP configuration
+
+
+------------------------------------------------------------------------       
+===========================================================================    
+                                                                               
+                                                                               
+                                                                               
+                                                                               

@@ -1,0 +1,296 @@
+; Customizing your Computer in Desktop.ini
+; 
+; 
+; XP USERS DO NOT USE THE DEFUALT BACKGROUND SECTION
+; IT ONLY WORKS ON 95 AND 98 NOT 2000, NT, OR XP
+; 
+; ADDING THESE HACKS WILL HAVE NO RESUALT
+; 
+; 
+;This is a working Desktop.ini File
+; Save this and modifie to you hearts content
+; 
+; WARNING DO NOT CHANGE CONTENSE OF THIS FILE IF YOU DON'T KNOW WHAT YOU ARE DOING!
+; Now we are done with the discaimer lets get moving.
+; Do not un-rem any of the commands in the main section.
+; This is just for information, the active stuff is at the botom of the file
+; you can un-rem the stuff at the bottom
+; 
+; The Registry stuff in here maybe tough to understand i may fix it.
+; I might create an inf file to do it.
+; 
+; Questions | Comments email me | NO SPAM
+;
+; http://www.geocities.com/registrylord/
+; mw8xhdmex869es001@sneakemail.com
+; If you learn how to easily memorize my email address you are crazy
+;====================================================================================================
+;  
+; [ExtShellFolderViews]
+;  Default={5984FFE0-28D4-11CF-AE66-08002B2E1262}			;Default View (Don't Use)
+;  {BE098140-A513-11D0-A3A4-00C04FD706EC}={BE098140-A513-11D0-A3A4-00C04FD706EC} ;Folder settings
+;  {8BEBB290-52D0-11d0-B7F4-00C04FD706EC}={8BEBB290-52D0-11d0-B7F4-00C04FD706EC} ;Thumbnail View
+;  {5984FFE0-28D4-11CF-AE66-08002B2E1262}={5984FFE0-28D4-11CF-AE66-08002B2E1262} ;See below
+;  
+; Web View configuration of the side bar where it shows previews.
+; [{5984FFE0-28D4-11CF-AE66-08002B2E1262}] htt=HyperText Template
+;  PersistMoniker=file://(path)/(file(.htt?)) file that it shows in the folder in web view
+;  PersistMoniker=file://Folder.htt
+;  
+; -This is for manipulating how windows displays the current folder
+; [{BE098140-A513-11D0-A3A4-00C04FD706EC}]
+;  Attributes=1 					;no clue what this does
+;  IconArea_Image=C:\WINDOWS\clouds.bmp 		;background picture
+;  IconArea_Text=0x00000000				;Text Color
+;  IconArea_TextBackground=0x00000000			;Background Color of Text
+;  
+; -This is for the Thumbnail view.
+; [{8BEBB290-52D0-11d0-B7F4-00C04FD706EC}]
+;  MenuName=T&humbnails					;Name of choose.
+;  ToolTipText=T&humbnails				;????
+;  HelpText=Displays items using thumbnail view.	;Message Displayed in Status Bar
+;  Attributes=0x60000000				;Attributes for something
+;  
+; [.ShellClassInfo]
+; -For calling registry folders 
+; -See section labeled CLSID# for more info
+;  CLSID=(insert a [HKEY_CLASSES_ROOT\CLSID] key name)
+;  CLSID={1A9BA3A0-143A-11CF-8350-444553540000} ;(Favorites Folder)
+;  CLSID={645FF040-5081-101B-9F08-00AA002F954E} ;(Makes the Recyble Bin Work)
+;  CLSID={7BD29E00-76C1-11CF-9DD0-00A0C9034933} ;(Makes temporary internet docs work)
+;  CLSID={88C6C381-2E85-11d0-94DE-444553540000} ;(Makes Downloaded Program Files work)
+;  CLSID={d6277990-4c6a-11cf-8d87-00aa0060f5bf} ;(Makes the task folder work)
+;  CLSID={F3AA0DC0-9CC8-11D0-A599-00C04FD64434} ;(Sets a folder as a channel, (method 1 ?))
+;  CLSID={F5175861-2688-11d0-9C5E-00AA00A45957} ;(Makes the offline folder work)
+;  CLSID={FF393560-C2A7-11CF-BFF4-444553540000} ;(Makes History Folder Work (Part 1))
+;  CLSID=
+;  CLSID2=(insert a [HKEY_CLASSES_ROOT\CLSID] key name)
+;  CLSID2={450d8fba-ad25-11d0-98a8-0800361b1103} ;(This example is My Documents)
+;  UICLSID=(insert a [HKEY_CLASSES_ROOT\CLSID] key name, early win 95 hack)
+;  UICLSID={BD84B380-8CA2-1069-AB1D-08000948F534} ;(Makes the fonts folder work)
+;  UICLSID={7BD29E00-76C1-11CF-9DD0-00A0C9034933} ;(Makes History Folder work (Part 2))
+;  
+; -The tip you see when you move the mouse over it. (To weird)
+;  InfoTip=Stores Registry Documents and Documentation. See Desktop.ini inside.
+;  
+;  IconFile=C:\WINDOWS\regedit.exe
+;  IconIndex=(number) use to sepecify the icon you want in the icon library (The first Icon is O). 
+;  IconIndex=0
+;  
+; -(example icons files: *.ico, *.bmp, *.dll, *.cpl, *.icl, et cetra)
+; -folder must have the system attribute set (use attrib.exe or winfile.exe) to utilize this.
+;  
+;  ConfirmFileOp=		;no clue, maybe confirm file options or open?
+;  
+;  URL=				; for opening the forlder as a web page insert web page location
+;  Logo=			; your logos when you open the folder as a web page.
+;  WideLogo=			; your other logos when you open the folder as a web page.
+;
+;
+;I would give an example of a folder with a web page for web view but I don't have any. Sorry :(
+;  
+; [Channel]
+;  CDFURL=			; The website to link to.
+;  CDFURL=http://www.iechannelguide.com/guide.cdf?loc=en_us
+;  Logo=			;The small logo (same as above)
+;  Logo=file://C:\WINDOWS\web\chang_sl.gif
+;  WideLogo=			;The large logo on the page (same as above)
+;  WideLogo=file://C:\WINDOWS\web\chang_wl.gif
+;  Icon=must be an icon file or a bitmap. If anything else it will take the first Icon (i think)
+;  Icon=file://C:\WINDOWS\web\chang.ico
+;
+;====================================================================================================
+;
+;Folder Background Default
+;
+;Create a new text file and past this in (minus the ";") First fill in the ***a***'s with values in
+;the reg code below. Then save it as a .reg file.
+;
+;If you want other shell folders (like the fonts folder) included use this code.
+;
+;[HKEY_CLASSES_ROOT\CLSID\********\shellex\ExtShellFolderViews\{BE098140-A513-11D0-A3A4-00C04FD706EC}]
+;
+;
+;			------Folder-List------
+;
+;{1A9BA3A0-143A-11CF-8350-444553540000} - Favorites Folder
+;{208D2C60-3AEA-1069-A2D7-08002B30309D} - Network Neighborhood
+;{20D04FE0-3AEA-1069-A2D8-08002B30309D} - My Computer
+;{21EC2020-3AEA-1069-A2DD-08002B30309D} - Control Panel
+;{2227A280-3AEA-1069-A2DE-08002B30309D} - Printers
+;{63da6ec0-2e98-11cf-8d82-444553540000} - Microsoft FTP Folder (Internet Explorer FTP to look like explorer)
+;{645FF040-5081-101B-9F08-00AA002F954E} - Recycle Bin
+;{7BD29E00-76C1-11CF-9DD0-00A0C9034933} - Temperary Internet Files
+;{85BBD920-42A0-1069-A2E4-08002B30309D} - Briefcase
+;{88C6C381-2E85-11D0-94DE-444553540000} - ActiveX Chache Folder
+;{992CFFA0-F557-101A-88EC-00DD010CCC48} - Dial-Up Network
+;{BD84B380-8CA2-1069-AB1D-08000948F534} - Fonts Folder
+;{BDEADF00-C265-11d0-BCED-00A0C90AB50F} - Web Folders
+;{D6277990-4C6A-11CF-8D87-00AA0060F5BF} - Scheduled Tasks
+;{F5175861-2688-11d0-9C5E-00AA00A45957} - Subscription Folder
+;{FF393560-C2A7-11CF-BFF4-444553540000} - History
+;
+;These are not folders and do not need a backround; so don't add one.
+;{871C5380-42A0-1069-A2EA-08002B30309D} - Internet Explorer
+;	Icon on desktop that the properties is linked
+;	to internet options in the Control Panel
+;
+;
+;
+;***1*** = "C:\\WINDOWS\\Desktop\\Desktop Pictures\\Tile\\Thighmaster-Accident-2.JPG"
+;***1*** = Path to Image that will be tiled. Remember that in Regedit was built with C so to get "\" you need \\
+;
+;
+;REGEDIT4
+;
+;[HKEY_CLASSES_ROOT\Directory\shellex\ExtShellFolderViews\{BE098140-A513-11D0-A3A4-00C04FD706EC}]
+;
+;[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\ExtShellViews\{BE098140-A513-11D0-A3A4-00C04FD706EC}]
+;"Attributes"="1"
+;"IconArea_Image"="***1***"
+;"Resource"=1
+;
+;The text color one does not work hear for some dumb reason. I may make an explorer extension to
+;do this though.
+;
+;
+;A Good place to get tile wallpapers is www.customize.org
+;do a search for tile under wallpaper
+;there is a website where they made about 150 different tiles.
+;i have 95% of them. I might post them.
+;
+;====================================================================================================
+;
+;	There Are Applications that do wicked hacks to get what they want.
+;	There are two classes of wicked hacks. Registry and Desktop.ini
+;
+;	-- All Registry --
+;	
+;	Deep Linker		Shortcut program for adding icons to desktop and My Computer
+;			I recomend reading the documentaion that comes with.
+;
+;
+;	-- All Desktop.ini --
+;
+;		These works like the fonts folder or any channel. It is not a file
+;		but a folder. To see this open command.com or winfile.exe and you will
+;		see. Once in the folder edit desktop.ini if you can't see it (command.com
+;		people skip to step 2)
+;			1. Goto the file menu and open run
+;			2. type 'notepad ' plus the path of desktop.ini 
+;				(ex notepad C:\windows\new\desktop.ini)
+;			3. put a ; infront of the line starting 'CLSID=' or 'CLSID2=' or 'UICLSID='
+;				If there is more than one line starting 'CLSID=' do it to all.
+;			Now you can see the files.
+;		
+;	Change Icon	Uses standard windows supported icon changing techniucs mensioned in
+;			this file.
+;			http://Home.nordnet.fr/~pmdevigne/
+;			
+;	Folder Style	Uses standard windows supported icon changing techniucs mensioned in
+;			this file.
+;			http://www.6bytes.com/
+;		
+;		
+;	-- Desktop.ini + Drivers --
+;		
+;	Folder Pointers works like a windows 2000 or xp junction.
+;			it is a browsable shortcut.
+;			it has been crippled to only work in the start menu.
+;			with some hacking it could be force to work else ware.
+;		Desktop.ini
+;			[.ShellClassInfo]
+;			CLSID={FA6C62A0-9FE5-11D2-9E61-444553540000}
+;		Folder.lnk
+;			Shortcut to the real folder.
+;			http:/www.zdnet.com
+;
+;		
+;	Any Folder	Changes the icon of a folder allowing for both an open and closed icon
+;		
+;			[.ShellClassInfo]
+;			CLSID={5E676C24-194A-11d1-9FCB-4854E821E610}
+;
+;			[AFIcons]
+;			IconFileClosed=(icon file or library)
+;			IndexClosed=(icon number in library to use)
+;			IconFileOpened=(icon file or library)
+;			IndexOpened=(icon number in library to use)
+;			AnimateLarge=1 		;enables the icon to change
+;			http:
+;
+
+;
+;	IconMagician	Changes the icon of a folder. (Works in Start Menu)
+;
+;		[.ShellClassInfo]
+;		CLSID={FB02F421-7167-11D1-ABDC-0000C052BB79}
+;		ConfirmFileOp=0
+;
+;		[The IconMagician]
+;		CLSID={FB02F421-7167-11D1-ABDC-0000C052BB79}
+;		FolderIcon=(icon file or library),(icon number in library to use)
+;		Description=(What type it shows in Properties ie "File Folder")
+;	
+;		
+;		-------If you put files in a folder like this they won't show up on find.-------
+;		-------This only works in 95,  98 and 98SE, not XP. ME and 2000 untested.-------
+;
+;
+;--------------------------------------From Shell32.dll-------------------------------------
+;Text extracted from Shell32.dll
+;(very dull stuff)
+;
+;CLSID_ControlPanel              = "{21EC2020-3AEA-1069-A2DD-08002B30309D}"
+;CLSID_Printers                  = "{2227A280-3AEA-1069-A2DE-08002B30309D}"
+;CLSID_MyComputer                = "{20D04FE0-3AEA-1069-A2D8-08002B30309D}"
+;CLSID_NetworkNeighborhood       = "{208D2C60-3AEA-1069-A2D7-08002B30309D}"
+;CLSID_RecycleBin                = "{645FF040-5081-101B-9F08-00AA002F954E}"
+;CLSID_Briefcase                 = "{85BBD920-42A0-1069-A2E4-08002B30309D}"
+;CLSID_TaskScheduler             = "{D6277990-4C6A-11CF-8D87-00AA0060F5BF}"
+;CLSID_DialUpNetworking          = "{a4d92740-67cd-11cf-96f2-00aa00a11dd9}"
+;CLSID_DialUpNetworkingWin95     = "{992cffa0-f557-101a-88ec-00dd010ccc48}"
+;CLSID_RecycleBinCleaner         = "{5ef4af3a-f726-11d0-b8a2-00c04fc309a4}"
+;CLSID_Favorites                 = "{1A9BA3A0-143A-11CF-8350-444553540000}"
+;CLSID_StartMenuTask             = "{DDB008FE-048D-11d1-B9CD-00C04FC2C1D2}"
+;CLSID_DesktopTask               = "{E7D3DB4E-199C-11d1-9828-00C04FD91972}"
+;
+;----------------------------------------The Real Deal--------------------------------------
+
+
+[ExtShellFolderViews]
+;Default={5984FFE0-28D4-11CF-AE66-08002B2E1262}
+{BE098140-A513-11D0-A3A4-00C04FD706EC}={BE098140-A513-11D0-A3A4-00C04FD706EC}
+{8BEBB290-52D0-11d0-B7F4-00C04FD706EC}={8BEBB290-52D0-11d0-B7F4-00C04FD706EC}
+;{5984FFE0-28D4-11CF-AE66-08002B2E1262}={5984FFE0-28D4-11CF-AE66-08002B2E1262}
+
+[{8BEBB290-52D0-11d0-B7F4-00C04FD706EC}]
+MenuName=T&humbnails
+ToolTipText=T&humbnails
+HelpText=Displays items using thumbnail view.
+Attributes=0x60000000
+
+[.ShellClassInfo]
+InfoTip=Stores Registry Documents and Documentation. See Desktop.ini inside.
+;IconFile=C:\WINDOWS\regedit.exe
+IconFile=Reg Folder.ico
+IconIndex=0
+ConfirmFileOp=
+;URL=
+;Logo=
+;WideLogo=
+
+;[{5984FFE0-28D4-11CF-AE66-08002B2E1262}]
+;PersistMoniker=file://Folder.htt
+
+[{BE098140-A513-11D0-A3A4-00C04FD706EC}]
+Attributes=1
+IconArea_Image=C:\WINDOWS\clouds.bmp
+IconArea_Text=0x00000000
+;IconArea_TextBackground=0x00000000
+
+;[Channel]
+;CDFURL=http://www.iechannelguide.com/guide.cdf?loc=en_us
+;Logo=file://C:\WINDOWS\web\chang_sl.gif
+;WideLogo=file://C:\WINDOWS\web\chang_wl.gif
+;Icon=file://C:\WINDOWS\web\chang.ico

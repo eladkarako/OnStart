@@ -1,0 +1,55 @@
+'-----------------------------------------------------------------
+'Compatibility : Windows XP, Windows Vista and Windows 7
+'Author        : Ramesh Srinivasan - Microsoft MVP (Windows Shell)
+'Created on    : February 19, 2005
+'Revised on    : November 01, 2010
+'Description   : Fixes the Send To menu (missing all the shortcuts)
+'Homepage      : http://windowsxp.mvps.org
+'More Info     : http://windowsxp.mvps.org/sendtofix.htm
+'Requirement   : Needs Administrative privileges
+'-----------------------------------------------------------------
+
+Set WshShell = CreateObject("WScript.Shell")
+strComputer = "."
+Set objWMIService = GetObject _
+    ("winmgmts:\\" & strComputer & "\root\cimv2")
+
+'Determine if Windows XP or Vista
+Set colOperatingSystems = objWMIService.ExecQuery _
+    ("Select * from Win32_OperatingSystem")
+For Each objOperatingSystem in colOperatingSystems
+    if instr(objOperatingSystem.Caption,"Vista") Or instr(objOperatingSystem.Caption,"Windows 7") then
+		strSendTo = "%USERPROFILE%\AppData\Roaming\Microsoft\Windows\SendTo"
+    elseif instr(objOperatingSystem.Caption,"XP") Then	
+		strSendTo = "%USERPROFILE%\SendTo"
+    else
+		MsgBox "This script runs in Windows 7/Vista/XP systems only"
+		wscript.Quit
+    end if
+Next
+
+USFolderPath = "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders"
+On Error Resume Next
+WshShell.RegWrite "HKCR\exefile\shellex\DropHandler\", "{86C86720-42A0-1069-A2E8-08002B30309D}", "REG_SZ"
+WshShell.RegWrite "HKCR\lnkfile\shellex\DropHandler\", "{00021401-0000-0000-C000-000000000046}", "REG_SZ"
+WshShell.RegWrite USFolderPath & "\SendTo", strSendTo, "REG_EXPAND_SZ"
+Wshshell.RUN ("regsvr32.exe shell32.dll /i /s")
+
+'Get curr. user name
+Set colItems = objWMIService.ExecQuery("Select * From Win32_ComputerSystem")
+For Each objItem in colItems
+	strCurrentUserName = objItem.UserName
+Next
+
+'Restart user shell
+Set colProcessList = objWMIService.ExecQuery _
+    ("Select * from Win32_Process Where Name = 'Explorer.exe'")
+For Each objProcess in colProcessList
+	colProperties = objProcess.GetOwner(strNameOfUser,strUserDomain)
+	If strUserDomain & "\" & strNameOfUser = strCurrentUserName then
+		objProcess.Terminate()
+	End If
+Next
+
+MsgUser = Msgbox ("Fixed the Send To menu.", 4160, "'Send To' menu fix for Windows 7/Vista/XP.")
+Set WshShell = Nothing
